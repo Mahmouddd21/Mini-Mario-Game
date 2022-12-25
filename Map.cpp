@@ -4,6 +4,8 @@
 #include "stdlib.h"
 #import "Champion.cpp"
 #import "Cell.cpp"
+#import "Gem.cpp"
+#import "Obstacle.cpp"
 #include<conio.h>
 
 using namespace std;
@@ -11,6 +13,7 @@ using namespace std;
 class Map {
 
 private:
+
 
     Champion * champion;
     Cell ** board;
@@ -39,7 +42,7 @@ public:
 
         for (int i = 0; i < 10; ++i) {
             for (int j = 0; j < 10; ++j) {
-                cout << board[1][j] << " " << endl;
+                cout << &board[i][j] << " " << endl;
             }
             cout << endl;
         }
@@ -55,15 +58,15 @@ public:
             }
         }
         //champ location
-        board[champion->getX()][champion->getY()] = champ;
+        board[champion->getX()][champion->getY()] = champion->getCell();
 
 //randomly allocated gems
         int i = 0;
         while (i < 40) {
             int x = rand() % 10;
             int y = rand() % 10;
-            if (board[x][y] == '.') {
-                board[x][y] = gem;
+            if (board[x][y].getCell() == '.') {
+                board[x][y] = new Gem *();
                 i++;
             }
         }
@@ -113,11 +116,10 @@ public:
             pointY++;
         }
         if (champion->Get_gem() < 40) {
-            if (board[pointX][pointY] == gem) {
-                champion->Set_gem_Score(champion->Get_gem() + 1);
-                champion->Set_Champ_Score(10);
-            } else if (board[pointX][pointY] == obstacle) {
-                champion->Set_health(champion->Get_Health() - 40);
+            if (board[pointX][pointY].getCell() == 'g') {
+                //should learn how to execute the method of Gem class
+            } else if (board[pointX][pointY] == 'o') {
+                //should learn how to execute the method of Gem class
             }
         } else {
             cout << "You win!" << endl;

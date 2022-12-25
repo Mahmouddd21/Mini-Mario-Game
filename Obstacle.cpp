@@ -7,10 +7,9 @@ class Obstacle : public Cell{//needs adjustment in Gems
 private:
     int dmg_amount;
 public:
-    Obstacle(){
+    Obstacle() : Cell('o'){
         srand(time(0));
         this-> dmg_amount = 1+(rand() % 5);
-        this->setCell('o');
     }
     virtual void execute(Champion c);
 

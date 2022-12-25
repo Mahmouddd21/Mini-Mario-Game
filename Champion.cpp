@@ -13,14 +13,11 @@ private:
     int abilityCount;
 
 public:
-    Champion() {
+    Champion() : Cell('c',9,0){
         cout << "Constructor Champion() is called" << endl;
         this->health = 100;
         this->Gems_Score = 0;
         this->Champ_Score = 0;
-        this->setX(9);
-        this->setY(0);
-        this->setCell('c');
         this->abilityCount = 2;
     }
 

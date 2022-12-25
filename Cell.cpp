@@ -37,19 +37,19 @@ public:
         Cell::y = y;
     }
 
-    void operator=(char c){
+    void operator= (char c){
         cell = c;
     }
 
-    bool operator==(Cell c){
+    bool operator== (Cell c){
         return (c.cell == this->cell) && (c.y == this->y) && (c.x == this->x);
     }
 
-   friend ostream& operator<< (ostream& os, const Cell & c);
+   friend ostream& operator<< (ostream &os, const Cell & c);
 
 };
 
-ostream& operator<< (ostream& os, const Cell cell){
+ostream& operator<< (ostream &os, const Cell cell){
     os << cell.getCell();
     return os;
 }

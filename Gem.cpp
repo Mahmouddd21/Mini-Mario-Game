@@ -8,10 +8,9 @@ private:
 
 public:
 
-    Gem(){
+    Gem() : Cell('g'){
         srand(time(0));
         this->points = rand() % (11 - 5) + 5;
-        this->setCell('g');
     }
 
     virtual void execute(Champion c){}
